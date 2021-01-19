@@ -1,4 +1,4 @@
-#define PATH(name)                      "/home/men/desktop/dwmblocks/blocks/"name
+#define PATH(name)                      "/home/men/my-dwm/dwmblocks/blocks/"name
 
 /* DELIMITERENDCHAR must be less than 32.
  * At max, DELIMITERENDCHAR - 1 number of clickable blocks will be allowed.
@@ -9,7 +9,7 @@
    defined in colors array in dwm's config.h and so on.
  * If you wish to change DELIMITERENDCHAR, don't forget to update its value in
    dwm.c and color codes in your pathu programs. */
-#define DELIMITERENDCHAR                10
+#define DELIMITERENDCHAR                12
 
 /* If interval of a block is set to 0, the block will only be updated once at
    startup.
@@ -34,10 +34,11 @@ static Block blocks[] = {
 /*      pathu                           pathc                           interval        signal */
         { PATH("memory_dwm"),           PATH("memory_button"),          10,             9},
         { PATH("cpu_dwm"),              PATH("cpu_button"),             10,             8},
-        { PATH("cpubar_dwm"),           PATH("cpu_button"),             10,             7},
-        { PATH("weather_dwm"),          NULL,                           3000,           6},
-        { PATH("volume_dwm"),           PATH("volume_button"),          3000,           5},
-        { PATH("calendar_dwm"),         PATH("clock_button"),           30,             4},
+        { PATH("cpubar_dwm"),           PATH("cpu_button"),             10,             8},
+        { PATH("net_dwm"),              PATH("net_button"),             10,             6},
+        { PATH("weather_dwm"),          NULL,                           3600,           5},
+        { PATH("volume_dwm"),           PATH("volume_button"),          10,             4},
+        { PATH("calendar_dwm"),         PATH("clock_button"),           60,             3},
         { NULL } /* just to mark the end of the array */
 };
 

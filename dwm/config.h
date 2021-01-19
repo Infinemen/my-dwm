@@ -42,15 +42,15 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Vmware",           "vmware",         NULL,       1<<4,         0,           -1 },
-	{ "Zotero",           "Navigator",      NULL,       1<<3,         0,           -1 },
-	{ "Zathura",          "org.pwmt.zathura",      NULL,       1<<3,         0,           1 },
-	{ "Google-chrome",    "google-chrome",  NULL,       1<<1,         0,            1 },
-	{ "qv2ray",           NULL,             NULL,       0,            0,           -1 },
-	{ "Emacs",            "emacs",          NULL,       1<<2,         0,           -1 },
-	{ "netease-cloud-music", "netease-cloud-music",     NULL,         1<<5,         0,          -1 },
+	/* class                      instance           title       tags mask     isfloating   monitor */
+	{ "Gimp",                         NULL,          NULL,          0,            1,           -1 },
+	{ "Vmware",                   "vmware",          NULL,       1<<4,            0,           -1 },
+	{ "Zotero",                "Navigator",          NULL,       1<<3,            0,           -1 },
+	{ "Zathura",        "org.pwmt.zathura",          NULL,       1<<3,            0,            0 },
+	{ "Google-chrome",     "google-chrome",          NULL,       1<<1,            0,            0 },
+	{ "qv2ray",                       NULL,          NULL,          0,            0,           -1 },
+	{ "Emacs",                     "emacs",          NULL,       1<<2,            0,           -1 },
+	{ "netease-cloud-music", "netease-cloud-music",  NULL,       1<<5,            0,           -1 },
 };
 
 /* layout(s) */
