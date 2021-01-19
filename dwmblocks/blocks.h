@@ -37,7 +37,7 @@ static Block blocks[] = {
         { PATH("cpubar_dwm"),           PATH("cpu_button"),             10,             8},
         { PATH("net_dwm"),              PATH("net_button"),             10,             6},
         { PATH("weather_dwm"),          NULL,                           3600,           5},
-        { PATH("volume_dwm"),           PATH("volume_button"),          10,             4},
+        { PATH("volume_dwm"),           PATH("volume_button"),           0,             4},
         { PATH("calendar_dwm"),         PATH("clock_button"),           60,             3},
         { NULL } /* just to mark the end of the array */
 };

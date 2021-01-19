@@ -1,6 +1,6 @@
 #!/bin/sh
 case $1 in
-    1) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
+    1) pactl set-sink-mute @DEFAULT_SINK@ toggle && sigdwmblocks 4;;
 	2) setsid -f st -e pulsemixer ;;
 	3) notify-send "📢 Volume module" "\- Shows volume 🔊, 🔇 if muted.
 - Middle click to mute.
