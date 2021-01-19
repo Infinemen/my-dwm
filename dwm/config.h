@@ -5,7 +5,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 22;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Ubuntu Nerd Font:size=12","Blobmoji:pixelsize=12" };
+static const char *fonts[]          = { "Ubuntu Nerd Font:size=12","Blobmoji:pixelsize=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -35,7 +35,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -44,11 +44,17 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Vmware",           "vmware",         NULL,       1<<4,         0,           -1 },
+	{ "Zotero",           "Navigator",      NULL,       1<<3,         0,           -1 },
+	{ "Zathura",          "org.pwmt.zathura",      NULL,       1<<3,         0,           1 },
+	{ "Google-chrome",    "google-chrome",  NULL,       1<<1,         0,            1 },
+	{ "qv2ray",           NULL,             NULL,       0,            0,           -1 },
+	{ "Emacs",            "emacs",          NULL,       1<<2,         0,           -1 },
+	{ "netease-cloud-music", "netease-cloud-music",     NULL,         1<<5,         0,          -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.65; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
@@ -69,15 +75,37 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define XF86AudioLowerVolume  0x1008ff11
+#define XF86AudioRaiseVolume  0x1008ff13
+#define XF86AudioMute         0x1008ff12
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
+//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *vmcmd[]  = { "vmware", NULL };
+static const char *ztcmd[]  = { "zotero", NULL };
+static const char *googlecmd[]  = { "google-chrome-stable", NULL };
+static const char *v2raycmd[]  = { "qv2ray", NULL };
+static const char *lockcmd[]  = { "betterlockscreen","-l","blur", NULL };
+static const char *neteacmd[]  = { "netease-cloud-music", NULL };
+static const char *emacscmd[]  = { "emacs", NULL };
+static const char *volup[]   = { "pactl", "set-sink-volume", "0", "+5%",     NULL };
+static const char *voldown[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL };
+static const char *volmute[] = { "pactl", "set-sink-mute",   "0", "toggle",  NULL };
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_v,      spawn,          {.v = vmcmd } },
+	{ MODKEY,                       XK_z,      spawn,          {.v = ztcmd } },
+	{ MODKEY,                       XK_g,      spawn,          {.v = googlecmd } },
+	{ MODKEY,                       XK_q,      spawn,          {.v = v2raycmd} },
+	{ MODKEY,                       XK_n,      spawn,          {.v = neteacmd} },
+	{ MODKEY,                       XK_e,      spawn,          {.v = emacscmd} },
+	{ Mod4Mask,                     XK_l,      spawn,          {.v = lockcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
@@ -112,6 +140,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+    { 0,                            XF86AudioLowerVolume, spawn, {.v = voldown } },
+    { 0,                            XF86AudioRaiseVolume, spawn, {.v = volup } },
+    { 0,                            XF86AudioMute,        spawn, {.v = volmute} },
+
 };
 
 /* button definitions */
