@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sensors | awk -F : '/CPU Temperature/{print "🌡" $2}' | sed 's/ //g'
+
+# sensors | awk '/Core 0/ {print "🌡" $3}'

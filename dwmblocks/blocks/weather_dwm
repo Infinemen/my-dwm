@@ -1,0 +1,11 @@
+#!/bin/sh
+
+curl -s 'wttr.in/hefei?format=%c+%t+%m'
+
+case $BLOCK_BUTTON in
+	7) setsid -f "$TERMINAL" -e curl -s 'wttr.in/hefei' ;;
+	3) notify-send "🌈 Weather module" "\- Left click for full forecast." ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+

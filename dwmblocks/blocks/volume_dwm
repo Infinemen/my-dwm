@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#[ $(pamixer --get-mute) = true ] && echo 🔇 && exit
+
+[ $(pulsemixer --get-mute) = true ] && echo 🔇 && exit
+vol="$(pulsemixer --get-volume | awk '{print $1}' )"
+
+if [ "$vol" -gt "70" ]; then
+	icon="🔊"
+elif [ "$vol" -lt "30" ]; then
+	icon="🔈"
+else
+	icon="🔉"
+fi
+
+echo "$icon$vol"
