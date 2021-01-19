@@ -9,7 +9,7 @@ my personal desktop based on dwm(http://dwm.suckless.org/)
 	 - statuscmd
 
 # SatusBar
-	 - dwmblocks (Luke Build)
+	 - dwmblocks (https://github.com/ashish-yadav11/dwmblocks.git)
 
 # software
   - rofi
