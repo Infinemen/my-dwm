@@ -2,14 +2,14 @@
 my personal desktop based on dwm(http://dwm.suckless.org/)
 
   - patches
-     - alpha
-     - autostart
-	 - pertag
-	 - rotatestack
-	 - statuscmd
+    - alpha
+    - autostart
+    - pertag
+    - rotatestack
+    - one in dwmblocks' patches folder
 
-# SatusBar
-	 - dwmblocks (https://github.com/ashish-yadav11/dwmblocks.git)
+  - SatusBar
+    - dwmblocks (https://github.com/ashish-yadav11/dwmblocks.git)
 
 # software
   - rofi
