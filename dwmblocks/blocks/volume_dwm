@@ -1,8 +1,8 @@
 #!/bin/sh
 
-[ $(pulsemixer --get-mute) = "1" ] && echo 🔇 && exit
+[ $(pamixer --get-mute) = true ] && echo 🔇 && exit
 
-vol="$(pulsemixer --get-volume | awk '{print $1}' )"
+vol="$( pacmd list-sinks | awk '/volume: front/ {print $5}' )"
 
 if [ "$vol" -gt "70" ]; then
 	icon="🔊"

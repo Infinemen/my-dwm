@@ -1,0 +1,9 @@
+#!/bin/sh
+case $BLOCK_BUTTON in
+	2) setsid -f st -e htop ;;
+	3) notify-send "ﳇ CPU load module" "Each bar represents
+one CPU core";;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+

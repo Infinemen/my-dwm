@@ -34,7 +34,7 @@ static Block blocks[] = {
 /*      pathu                           pathc                           interval        signal */
         { PATH("memory_dwm"),           PATH("memory_button"),          10,             9},
         { PATH("cpu_dwm"),              PATH("cpu_button"),             10,             8},
-        { PATH("cpubar_dwm"),           PATH("cpu_button"),             10,             8},
+        { PATH("cpubar_dwm"),           PATH("cpubar_button"),          10,             8},
         { PATH("net_dwm"),              PATH("net_button"),             10,             6},
         { PATH("weather_dwm"),          NULL,                           3600,           5},
         { PATH("volume_dwm"),           PATH("volume_button"),           0,             4},
