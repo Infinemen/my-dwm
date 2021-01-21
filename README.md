@@ -11,6 +11,9 @@ my personal desktop based on dwm(http://dwm.suckless.org/)
   - SatusBar
     - dwmblocks (https://github.com/ashish-yadav11/dwmblocks.git)
 
+  - Auto Lock
+    - xidlehook(AUR)
+
 # software
   - rofi
   - vim
@@ -19,6 +22,8 @@ my personal desktop based on dwm(http://dwm.suckless.org/)
   - asus motherboard driver(AUR)
   - libxft-brga-git (AUR)
   - st (suckless.org)
+  - mathpix(AUR)
+  - task spooler
 
 # Hats off to all the developers. 
 

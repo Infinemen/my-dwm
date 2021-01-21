@@ -11,8 +11,18 @@ dwmblocks &
 fcitx5 &
 
 # Auto Lock
-exec --no-startup-id xidlehooh --not-when-fullscreen --timer 300 "betterlockscreen -l blur" &
-exec --no-startup-id xidlehooh --not-when-fullscreen --timer 1800 "systemctl suspend" &
+xidlehook \
+  --not-when-fullscreen \
+  --not-when-audio \
+  --timer 360  \
+    'xrandr --output DisplayPort-0 --brightness .1; xrandr --output DisplayPort-1 --brightness .1' \
+    'xrandr --output DisplayPort-0 --brightness 1; xrandr --output DisplayPort-1 --brightness 1' \
+  --timer 660 \
+    'xrandr --output DisplayPort-0 --brightness 1; xrandr --output DisplayPort-1 --brightness 1; betterlockscreen -l blur' \
+    '' \
+  --timer 2400 \
+    'systemctl suspend' \
+    '' &
 
 # Wallpaper
 feh --bg-fill --randomize ~/picture/wallpaper ~/picture/wallpaper &

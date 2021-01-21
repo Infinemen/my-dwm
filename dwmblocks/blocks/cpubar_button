@@ -1,9 +1,9 @@
 #!/bin/sh
 case $1 in
 	1) notify-send "ﳇ CPU hogs" "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)\\n(100% per core)" ;;
-	2) setsid -f st -e htop ;;
-	3) notify-send "ﳇ CPU load module" "Each bar represents
-one CPU core";;
+	2) exec st -e htop ;;
+	3) notify-send "ﳇ CPU load module" "Each bar represents one CPU core
+- Click to show intensive processes.
 - Middle click to open htop." ;;
 	6) exec st -e "$EDITOR" "$0" ;;
 esac
