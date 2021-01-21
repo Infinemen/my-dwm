@@ -1,9 +1,11 @@
 #!/bin/sh
-case $BLOCK_BUTTON in
+case $1 in
+	1) notify-send "ﳇ CPU hogs" "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)\\n(100% per core)" ;;
 	2) setsid -f st -e htop ;;
 	3) notify-send "ﳇ CPU load module" "Each bar represents
 one CPU core";;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+- Middle click to open htop." ;;
+	6) exec st -e "$EDITOR" "$0" ;;
 esac
 
 
