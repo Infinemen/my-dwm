@@ -1,4 +1,4 @@
-#define PATH(name)                      "/home/men/my-dwm/dwmblocks/blocks/"name
+#define PATH(name)                      "/home/men/wm/dwmblocks/blocks/"name
 
 /* DELIMITERENDCHAR must be less than 32.
  * At max, DELIMITERENDCHAR - 1 number of clickable blocks will be allowed.

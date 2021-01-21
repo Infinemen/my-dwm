@@ -1,14 +1,18 @@
 # Display Resolution
-xrandr --output DisplayPort-1 --auto --rotate left --output DisplayPort-0 --auto --left-of DisplayPort-1 &
+xrandr --output DisplayPort-0 --auto --rotate left --output DisplayPort-1 --auto --left-of DisplayPort-0 &
 
 # Transparency
 picom -f &
 
 # Status Bar
-nohup dwmblocks > /dev/null 2>&1 &
+dwmblocks &
 
 # Fcitx5
 fcitx5 &
+
+# Auto Lock
+exec --no-startup-id xidlehooh --not-when-fullscreen --timer 300 "betterlockscreen -l blur" &
+exec --no-startup-id xidlehooh --not-when-fullscreen --timer 1800 "systemctl suspend" &
 
 # Wallpaper
 feh --bg-fill --randomize ~/picture/wallpaper ~/picture/wallpaper &
