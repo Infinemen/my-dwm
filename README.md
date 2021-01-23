@@ -14,7 +14,7 @@ my personal desktop based on dwm(http://dwm.suckless.org/)
   - Auto Lock
     - xidlehook(AUR)
 
-# software
+# Software
   - rofi
   - vim
   - doom emacs (https://github.com/hlissner/doom-emacs.git)
