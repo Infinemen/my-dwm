@@ -13,14 +13,13 @@ fcitx5 &
 # Auto Lock
 xidlehook \
   --not-when-fullscreen \
-  --not-when-audio \
-  --timer 360  \
+  --timer 360 \
     'xrandr --output DisplayPort-0 --brightness .1; xrandr --output DisplayPort-1 --brightness .1' \
     'xrandr --output DisplayPort-0 --brightness 1; xrandr --output DisplayPort-1 --brightness 1' \
-  --timer 660 \
+  --timer 366 \
     'xrandr --output DisplayPort-0 --brightness 1; xrandr --output DisplayPort-1 --brightness 1; betterlockscreen -l blur' \
     '' \
-  --timer 2400 \
+  --timer 1800 \
     'systemctl suspend' \
     '' &
 
