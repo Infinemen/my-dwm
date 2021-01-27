@@ -7,6 +7,7 @@ my personal desktop based on dwm(http://dwm.suckless.org/)
     - pertag
     - rotatestack
     - one in dwmblocks' patches folder
+    - tab (show multi window in one)
 
   - SatusBar
     - dwmblocks (https://github.com/ashish-yadav11/dwmblocks.git)
