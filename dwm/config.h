@@ -68,8 +68,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[F]",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
-};
+	{ "[M]",      monocle }, };
 
 /* key definitions */
 #define MODKEY Mod1Mask
@@ -81,9 +80,10 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-#define XF86AudioLowerVolume  0x1008ff11
-#define XF86AudioRaiseVolume  0x1008ff13
-#define XF86AudioMute         0x1008ff12
+#include<X11/XF86keysym.h>
+//#define XF86AudioLowerVolume  0x1008ff11
+//#define XF86AudioRaiseVolume  0x1008ff13
+//#define XF86AudioMute         0x1008ff12
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -145,11 +145,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_6,                      5)
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    { 0,                            XF86AudioLowerVolume, spawn, {.v = voldown } },
-    { 0,                            XF86AudioRaiseVolume, spawn, {.v = volup } },
-    { 0,                            XF86AudioMute,        spawn, {.v = volmute} },
+    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldown } },
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volup } },
+    { 0,                            XF86XK_AudioMute,        spawn, {.v = volmute} },
 
 };
 
