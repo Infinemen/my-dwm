@@ -16,15 +16,19 @@ my personal desktop based on dwm(http://dwm.suckless.org/)
     - xidlehook(AUR)
 
 # Software
+  - st (suckless.org)
+  - zsh
+  - ranger
   - rofi
   - vim
   - doom emacs (https://github.com/hlissner/doom-emacs.git)
+  - feh (wallpaper)
   - betterlockscreen (archlinuxcn)
-  - asus motherboard driver(AUR)
-  - libxft-brga-git (AUR)
-  - st (suckless.org)
-  - mathpix(AUR)
+  - dunst
+  - mathpix snipping tool (AUR)
+  - libxft-brga-git * (AUR)
   - task spooler
+  - asus motherboard driver (AUR)
 
 # Hats off to all the developers. 
 
