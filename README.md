@@ -1,5 +1,5 @@
-# Infinemen's DWM desktop
-my personal desktop based on dwm(http://dwm.suckless.org/)
+# Infinemen's DWM desktop on Archlinux
+my personal desktop based on dwm (http://dwm.suckless.org/)
 
   - patches
     - alpha
@@ -27,7 +27,7 @@ my personal desktop based on dwm(http://dwm.suckless.org/)
   - dunst
   - mathpix snipping tool (AUR)
   - libxft-brga-git * (AUR)
-  - task spooler
+  - task spooler (AUR)
   - asus motherboard driver (AUR)
 
 # Hats off to all the developers. 
