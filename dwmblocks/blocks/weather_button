@@ -1,0 +1,8 @@
+#!/bin/sh
+case $1 in
+	1) exec sigdwmblocks 5 ;;
+	2) exec st -e curl -s 'wttr.in/hefei' ;;
+	3) notify-send "🌈 Weather module" "\- Left click for update weather." ;;
+esac
+
+
