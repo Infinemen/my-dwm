@@ -13,10 +13,10 @@ fcitx5 &
 # Auto Lock
 xidlehook \
   --not-when-fullscreen \
-  --timer 360 \
+  --timer 480 \
     'xrandr --output DisplayPort-0 --brightness .1; xrandr --output DisplayPort-1 --brightness .1' \
     'xrandr --output DisplayPort-0 --brightness 1; xrandr --output DisplayPort-1 --brightness 1' \
-  --timer 366 \
+  --timer 8 \
     'xrandr --output DisplayPort-0 --brightness 1; xrandr --output DisplayPort-1 --brightness 1; betterlockscreen -l blur' \
     '' \
   --timer 1800 \
