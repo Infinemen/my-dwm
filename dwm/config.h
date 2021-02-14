@@ -5,13 +5,13 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 22;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Ubuntu Nerd Font:size=12","Blobmoji:pixelsize=14:antialias=true:autohint=true" };
-/* Display modes of the tab bar: never shown, always shown, shown only in  */
-/*  monocle mode in the presence of several windows.                        */
-/*  Modes after showtab_nmodes are disabled.                                */
+/*   Display modes of the tab bar: never shown, always shown, shown only in */
+/*   monocle mode in presence of several windows.                           */
+/*   Modes after showtab_nmodes are disabled                                */
 enum showtab_modes { showtab_never, showtab_auto, showtab_nmodes, showtab_always};
-static const int showtab			= showtab_auto;        /* Default tab bar show mode */
-static const int toptab				= True;               /* False means bottom tab bar */
+static const int showtab            = showtab_auto; /* Default tab bar show mode */
+static const Bool toptab            = False;    /* False means bottom tab bar */
+static const char *fonts[]          = { "Ubuntu Nerd Font:size=12","Blobmoji:pixelsize=14:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -43,13 +43,18 @@ static const char *colors[][3]      = {
 /* tagging */
 static const char *tags[] = { "", "", "", "", "", "", "", "" };
 
+/* default layout per tags */
+/* The first element is for all-tag view, following i-th element corresponds to */
+/* tags[i]. Layout is referred using the layouts array index.*/
+static int def_layouts[1 + LENGTH(tags)]  = { 0, 0, 0, 0, 2, 0, 0, 0, 0};
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                      instance           title       tags mask     isfloating   monitor */
-	{ "Gimp",                         NULL,          NULL,          0,            1,           -1 },
+	/* class      instance    title       tags mask     isfloating   monitor */
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Vmware",                   "vmware",          NULL,       1<<4,            0,           -1 },
 	{ "Zotero",                "Navigator",          NULL,       1<<3,            0,           -1 },
 	{ "Zathura",        "org.pwmt.zathura",          NULL,       1<<3,            0,            0 },
@@ -66,9 +71,10 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "[T]",      tile },    /* first entry is default */
 	{ "[F]",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle }, };
+	{ "[M]",      monocle },
+};
 
 /* key definitions */
 #define MODKEY Mod1Mask
@@ -81,14 +87,10 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 #include<X11/XF86keysym.h>
-//#define XF86AudioLowerVolume  0x1008ff11
-//#define XF86AudioRaiseVolume  0x1008ff13
-//#define XF86AudioMute         0x1008ff12
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
-//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *vmcmd[]  = { "vmware", NULL };
 static const char *ztcmd[]  = { "zotero", NULL };
@@ -171,4 +173,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkTabBar,            0,              Button1,        focuswin,       {0} },
 };
-
