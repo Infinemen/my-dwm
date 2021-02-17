@@ -465,7 +465,7 @@ void
 buttonpress(XEvent *e)
 {
         int i, x;
-        unsigned int click;
+        unsigned int click=0;
 	Arg arg = {0};
 	Client *c;
 	Monitor *m;
@@ -589,7 +589,7 @@ clientmessage(XEvent *e)
 {
 	XClientMessageEvent *cme = &e->xclient;
 	Client *c = wintoclient(cme->window);
-	int i;
+	//int i;
 
 	if (!c)
 		return;
@@ -812,19 +812,19 @@ drawbar(Monitor *m)
             if ((unsigned char)*stc >= ' ') {
                 stc++;
                 continue;
-                }
-                tmp = *stc;
-                if (stp != stc) {
-                    *stc = '\0';
-                    x = drw_text(drw, x, 0, TTEXTW(stp), bh, 0, stp, 0);
-                }
-                if (tmp == '\0')
-                    break;
-                if (tmp - DELIMITERENDCHAR - 1 < LENGTH(colors))
-                    drw_setscheme(drw, scheme[tmp - DELIMITERENDCHAR - 1]);
-                    *stc = tmp;
-                    stp = ++stc;
-                }
+            }
+            tmp = *stc;
+            if (stp != stc) {
+                *stc = '\0';
+                x = drw_text(drw, x, 0, TTEXTW(stp), bh, 0, stp, 0);
+            }
+            if (tmp == '\0')
+                break;
+            if (tmp - DELIMITERENDCHAR - 1 < LENGTH(colors))
+            drw_setscheme(drw, scheme[tmp - DELIMITERENDCHAR - 1]);
+            *stc = tmp;
+            stp = ++stc;
+        }
             drw_setscheme(drw, scheme[SchemeNorm]);
             drw_rect(drw, x, 0, m->ww - x, bh, 1, 1); /* to keep right padding clean */
 	}

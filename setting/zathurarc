@@ -1,0 +1,11 @@
+set font "Hack 15"
+#set guioptions sc           # show statusbar command bar
+
+set inputbar-bg            "#1f2022"
+set inputbar-fg            "#f8f8f8"
+set statusbar-fg           "#5fafd7"
+set statusbar-fg           "#5faf00"
+set selection-clipboard clipboard
+set window-title-home-tilde true
+set statusbar-home-tilde true
+set window-title-basename true
