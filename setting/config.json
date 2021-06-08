@@ -1,0 +1,131 @@
+{
+  "dns": {
+    "servers": [
+      " 180.76.76.76",
+      {
+        "address": "1.1.1.1",
+        "port": 53,
+        "domains": [
+          "geosite:geolocation-!cn"
+        ]
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "enabled": true
+      },
+      "tag": "socks"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10809,
+      "protocol": "http",
+      "settings": {
+        "userLevel": 8
+      },
+      "tag": "http"
+    }
+  ],
+  "log": {
+    "loglevel": "warning"
+  },
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "8.210.75.219",
+            "port": 39052,
+            "users": [
+              {
+                "alterId": 64,
+                "id": "9f2e8416-107f-4979-9b05-afce9176ae4e"
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "AliHK",
+      "proxySettings": {
+          "tag": "AliHD"
+        }
+    },
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "121.196.221.238",
+            "port": 37389,
+            "users": [
+              {
+                "alterId": 64,
+                "id": "76a033f1-8d93-4446-b8b9-614843e0db22"
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "AliHD"
+    },
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "adblock"
+    } 
+  ],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "domain": [
+          "googleads.g.doubleclick.net",
+          "cb.baidu.com",
+          "googlesyndication.com",
+          "googeadsserving.cn"
+        ],
+        "type": "field",
+        "outboundTag": "adblock"       
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct", 
+        "domain": ["geosite:cn"] 
+      },
+
+      {
+        "type": "field",
+        "outboundTag": "direct", 
+        "ip": [
+          "geoip:cn", 
+          "geoip:private"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "proxy",
+        "network": "udp,tcp"
+      }  
+    ]
+  }
+}
