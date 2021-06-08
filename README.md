@@ -18,12 +18,12 @@ my personal desktop based on dwm (http://dwm.suckless.org/)
 # Software
   - st (suckless.org)
   - zsh
-  - ranger
+  - ranger (.config/ranger/)
   - rofi
   - vim
   - doom emacs (https://github.com/hlissner/doom-emacs.git)
   - feh (wallpaper)
-  - betterlockscreen (archlinuxcn)
+  - betterlockscreen (.config)
   - dunst
   - mathpix snipping tool (AUR)
   - libxft-brga-git * (AUR)
