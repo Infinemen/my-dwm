@@ -78,7 +78,7 @@ call plug#begin('/usr/share/vim/plugged')
     Plug 'bronson/vim-trailing-whitespace'
     Plug 'Lokaltog/vim-easymotion'
     Plug 'kien/rainbow_parentheses.vim'
-    Plug 'kien/ctrlp.vim',{'on':'CtrlpToggle'}
+	Plug 'Yggdroot/LeaderF',{'do': './install.sh'}
     Plug 'majutsushi/tagbar',{'on':'TagbarToggle'}
     Plug 'mhinz/vim-startify'
     Plug 'morhetz/gruvbox'
@@ -170,15 +170,6 @@ endif
     let g:rbpt_loadcmd_toggle=0
     nmap <f10> :RainbowParenthesesToggle<CR>
 
-"Setting for ctrlp"
-    let g:ctrlp_map = '<c-p>'
-	let g:ctrlp_cmd = 'CtrlP'
-	set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-    let g:ctrlp_custom_ignore = {
-	  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-	  \ 'file': '\v\.(exe|so|dll)$',
-	  \ 'link': 'some_bad_symbolic_links',
-	  \ }
 "Setting for tagbar"
     nmap <f2> :TagbarToggle<CR>
 	let g:tagbar_type_objc = {
