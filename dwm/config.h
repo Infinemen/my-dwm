@@ -41,7 +41,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "" };
+/*static const char *tags[] = { "", "", "", "", "", "", "", "" 💔};*/
+static const char *tags[] = { "⛩️", "📛", "🗃️", "🈲", "🏛️", "🎮", "🛡️", "🐲"};
 
 /* default layout per tags */
 /* The first element is for all-tag view, following i-th element corresponds to */
