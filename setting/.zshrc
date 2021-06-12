@@ -116,9 +116,7 @@ alias sfs="sftp mzzheng@shenma.ipp.ac.cn"
 
 export EDITOR="vim"
 export TERMINAL="st"
-export PATH=$PATH:~/.emacs.d/bin
 export PATH=$PATH:~/.local/bin/dwmblock
-export TERM=xterm
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export XDG_USER_CONFIG_DIR="~/.config"
-
+export https_proxy="socks5://127.0.0.1:10808"
