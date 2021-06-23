@@ -1,5 +1,5 @@
 # Display Resolution
-xrandr --output DisplayPort-0 --auto --rotate left --output DisplayPort-1 --auto --left-of DisplayPort-0 &
+xrandr --output DP-1 --auto --rotate left --right-of DP-2 --output DP-2 --auto  &
 
 # Transparency
 picom -f &
@@ -11,17 +11,17 @@ dwmblocks &
 fcitx5 &
 
 # Auto Lock
-xidlehook \
-  --not-when-fullscreen \
-  --timer 480 \
-    'xrandr --output DisplayPort-0 --brightness .1; xrandr --output DisplayPort-1 --brightness .1' \
-    'xrandr --output DisplayPort-0 --brightness 1; xrandr --output DisplayPort-1 --brightness 1' \
-  --timer 8 \
-    'xrandr --output DisplayPort-0 --brightness 1; xrandr --output DisplayPort-1 --brightness 1; betterlockscreen -l blur' \
-    '' \
-  --timer 1800 \
-    'systemctl suspend' \
-    '' &
+#xidlehook \
+#  --not-when-fullscreen \
+#  --timer 480 \
+#    'xrandr --output DisplayPort-0 --brightness .1; xrandr --output DisplayPort-1 --brightness .1' \
+#    'xrandr --output DisplayPort-0 --brightness 1; xrandr --output DisplayPort-1 --brightness 1' \
+#  --timer 8 \
+#    'xrandr --output DisplayPort-0 --brightness 1; xrandr --output DisplayPort-1 --brightness 1; betterlockscreen -l blur' \
+#    '' \
+#  --timer 1800 \
+#    'systemctl suspend' \
+#    '' &
 
 # Wallpaper
 feh --bg-fill --randomize ~/picture/wallpaper ~/picture/wallpaper &
